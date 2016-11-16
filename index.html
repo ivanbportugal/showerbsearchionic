@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BSearch Ionic</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="node_modules/shower-material/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Go Search Lots of Text</h1>
+		<p>Ok, so it's not a TON but...</p>
+	</header>
+	<section class="slide" id="cover">
+		<h2>Go Search Lots of Text (not a ton)</h2>
+		<p>Brought to you by <a href="http://ivanportugal.com">Ivan Portugal</a></p>
+		<img src="pictures/oldBible.jpg" alt="" class="cover">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+			#cover p a {
+				color:#FFF;
+			}
+			.slide .cover {
+				max-height: inherit;
+			}
+			.red {
+				color: red;
+			}
+			.pull-right {
+				float: right;
+			}
+			.white {
+				color:#FFF !important;
+			}
+			.dark-bg {
+				background-color: rgba(10,10,10,0.9) !important;
+			}
+			.small {
+				font-size: 14px;
+			}
+
+			.next {
+				opacity: 0;
+				-webkit-transform: translateY(10px);
+				-moz-transform: translateY(10px);
+				transform: translateY(10px);
+				-webkit-transition: visibility 0.5s linear, opacity 0.5s linear, transform 0.5s linear;
+				-moz-transition: visibility 0.5s linear, opacity 0.5s linear, transform 0.5s linear;
+				-o-transition: visibility 0.5s linear, opacity 0.5s linear, transform 0.5s linear;
+			}
+			.next.active, body.list .next {
+				opacity: 1;
+				-webkit-transform: translateY(0);
+				-moz-transform: translateY(0);
+				transform: translateY(0);
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Overview</h2>
+		<ol>
+			<li>Statistics of Biblical proportions</li>
+			<li>Technical Overview</li>
+			<li>Deployment Strategy</li>
+			<li>Demo</li>
+			<li>Code</li>
+		</ol>
+	</section>
+	<section class="slide">
+		<h2>Stats</h2>
+		<p class="next">Old Testament, New Testament, 66 books total.</p>
+		<!-- <p class="next">There are <b>23,145</b> verses in the Old Testament and <b>7,957</b> verses in the New Testament. This gives a total of <b>31,102</b> verses, which is an average of a little more than <b>26</b> verses per chapter.
+		<br>
+		The King James Authorized Bible has <b class="red">783,137</b> words.</p> -->
+		<table class="next">
+			<tr>
+				<th>Section</th>
+				<th># of Verses</th>
+				<th># of Words</th>
+			</tr>
+			<tr>
+				<td>Old Testament</td>
+				<td><b>23,145</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>New Testament</td>
+				<td><b>7,957</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Both</td>
+				<td><b>31,102</b></td>
+				<td><b class="next red">783,137</b></td>
+			</tr>
+		</table>
+		<p class="next">Number of Letters: <b class="red">3,116,480</b><br>
+			<span class="pull-right">** King James Version</span>
+		</p>
+	</section>
+	<section class="slide">
+		<h2>Let's talk about Javascript...</h2>
+		<ul>
+			<li>ES5</li>
+			<li>ES6</li>
+			<li>TypeScript</li>
+			<li class="next">AtScript?</li>
+			<li class="next">BlahScript?</li>
+		</ul>
+		<img src="pictures/tsCompare.png" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>Angular 2</h2>
+		<p class="next">TypeScript! Yay, Microsoft.</p>
+		<p class="next">Ionic began with AngularJS</p>
+		<p class="next">but is now using Angular 2</p>
+		<p class="next">... as a hybrid framework</p>
+		<img src="pictures/angular.png" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>View (Non-ionic sample)</h2>
+		<style>
+			pre.small {
+				margin-left: 70px;
+			}
+		</style>
+		<pre class="small">
+			<code>&lt;div id="results-container" class="results-container"&gt;</code>
+			<code>  &lt;h4 class="error"&lt;{{ err }}&lt;/h4&gt;</code>
+			<code>  &lt;div class="user-input"&gt;</code>
+			<code>	  &lt;i class="icon-magnifier"&gt;&lt;/i&gt; &lt;input #query</code>
+			<code>      <span class="red">(keyup)="search(query.value)"</span> placeholder="comma-separated"&gt;</code>
+			<code>	  &lt;span class="count" [style.color]="getStyle(results.length)"&gt;{{results.length}}&lt;/span&gt;</code>
+			<code>  &lt;/div&gt;</code>
+			<code>  &lt;div class="results"</code>
+			<code> 		infinite-scroll</code>
+			<code>        [infiniteScrollDistance]="20"</code>
+			<code>        [infiniteScrollThrottle]="200"</code>
+			<code>        (scrolled)="onScroll()"&gt;</code>
+			<code>    &lt;Result class="flyIn" *ngFor="let result of visibleResults" [result]="result"&gt;&lt;/Result&gt;</code>
+			<code>  &lt;/div&gt;</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2 class="shout shrink">Let's take a closer look...</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout shrink">Ug, ok enough talking just show me the app!</h2>
+	</section>
+	<section class="slide">
+		<h2>The End</h2>
+		<ul>
+			<li>
+				<a href="https://github.com/ivanbportugal/shower">https://github.com/ivanbportugal/showerBsearchIonic</a>
+			</li>
+			<li>
+				<a href="https://github.com/ivanbportugal/bsearch">https://github.com/ivanbportugal/bsearch</a>
+			</li>
+			<li>
+				<a href="https://github.com/ivanbportugal/bsearchclient">https://github.com/ivanbportugal/bsearchclient</a>
+			</li>
+			<li>
+				<a href="https://github.com/ivanbportugal/bsearchionic">https://github.com/ivanbportugal/bsearchionic</a>
+			</li>
+			<li>
+				<a href="https://ivanportugal.com">https://ivanportugal.com</a>
+			</li>
+			<li>
+				<a href="https://ivanportugal.com">https://bsearch.ivanportugal.com</a>
+			</li>
+		</ul>
+	</section>
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="node_modules/shower-core/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
